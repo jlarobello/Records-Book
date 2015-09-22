@@ -2,11 +2,11 @@
  *
  * Name: Jonathan Robello
  *
- * Homework: Project 1
+ * Homework: Project2 
  *
  * Instructor: Ravi Narayan
  *
- * Date: June 13, 2015
+ * Date: June 28, 2015
  *
  * File: record.h
  *

@@ -1,12 +1,22 @@
+#MAKEFILE FOR PROJECT2
 
-project1: main.o record_functions.o
-	cc main.o record_functions.o -o project1
+project2: driver.o llist.o
+	g++ driver.o llist.o -o project2
 
-main.o: main.c
-	cc -strict -c main.c
+driver.o: driver.cpp
+	g++ -c driver.cpp
 
-record_functions.o: record_functions.c
-	cc -strict -c record_functions.c
+llist.o: llist.cpp
+	g++ -c llist.cpp
+
+debug:
+	g++ -c -D_DEBUGMODE llist.cpp
+	g++ -c -D_DEBUGMODE driver.cpp
+	g++ llist.o driver.o -o project2Debug
 
 clean:
-	rm *.o project1
+	rm *.o project2
+
+cleanDebug:
+	rm *.o project2Debug
+
