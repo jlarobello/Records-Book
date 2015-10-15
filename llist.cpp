@@ -104,7 +104,7 @@ int llist::addRecord(char uname[], char uaddress[], int uyearofbirth, char uteln
     if (_DEBUGMODE == 1)
     {
         cout << "addRecord Function\nName: " << uname << "\nAddress: " << uaddress << "\nYob: " << uyearofbirth << "\nTelno: " << utelno << "\n" << endl;
-	}
+    }
     if (temp == NULL)
     {
         temp = new record();
