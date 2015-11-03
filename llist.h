@@ -40,5 +40,5 @@ public:
     int deleteRecord(char[]);
     void reverse();
     friend std::ostream& operator<<(std::ostream&, llist const&);
-    llist& llist::operator=(const llist&);
+    llist& operator=(const llist&);
 };

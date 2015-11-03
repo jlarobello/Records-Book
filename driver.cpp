@@ -33,12 +33,10 @@ void getyob(int&);
 
 int main(int argc, char *argv[])
 {
-    llist * list;
+    llist * list = new llist();
     int yearofbirth = 0, console = 1;
-    //char validCmd[68] = "Valid Arguments: \"debug\" (for debug mode)\n";
+    char userInput[20], name[25], address[80], telno[15];
     char validCmd2[500] = "Valid Commands:\n add - add a new record \n printRec - prints a record using name as the key \n modify - modifies a record using name as the key \n printAll - Prints all information in the database \n delete - delete an existing record using name as the key\n reverse - reverses the list\n help - list of commands\n quit - exit the program\n";
-    char userInput[1000], name[25], address[80], telno[15];
-    list = new llist();
     if (_DEBUGMODE == 1)
     {
         strcat(validCmd2, " copyTest - to test copy constructor \n");

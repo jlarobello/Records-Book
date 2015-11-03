@@ -99,32 +99,28 @@ int llist::addRecord(char uname[], char uaddress[], int uyearofbirth, char uteln
 {
     int index = 0;
     struct record **newStart = &start;
-    struct record *newRec = NULL;
     struct record *temp = *newStart;
+    
+    struct record *newRec = new record();
+    strcpy(newRec->name, uname);
+    strcpy(newRec->address, uaddress);
+    strcpy(newRec->telno, utelno);
+    newRec->yearofbirth = uyearofbirth;
+    newRec->next = NULL;
     if (_DEBUGMODE == 1)
     {
-        cout << "addRecord Function\nName: " << uname << "\nAddress: " << uaddress << "\nYob: " << uyearofbirth << "\nTelno: " << utelno << "\n" << endl;
+        cout << "addRecord Function\nName: " << uname << "\nAddress: " << uaddress <<
+        "\nYob: " << uyearofbirth << "\nTelno: " << utelno << "\n" << endl;
 	}
-    if (temp == NULL)
+    
+    if (start == NULL)
     {
-        temp = new record();
-        temp->next = NULL;
-        strcpy(temp->name, uname);
-        strcpy(temp->address, uaddress);
-        temp->yearofbirth = uyearofbirth;
-        strcpy(temp->telno, utelno);
-        start = temp;
+        start = newRec;
         index++;
 	}
     else if (temp->next == NULL)
     {
-        newRec = new record();
-        newRec->next = NULL;
         temp->next = newRec;
-        strcpy(newRec->name, uname);
-        strcpy(newRec->address, uaddress);
-        newRec->yearofbirth = uyearofbirth;
-        strcpy(newRec->telno, utelno);
     }
     else
     {
@@ -132,18 +128,8 @@ int llist::addRecord(char uname[], char uaddress[], int uyearofbirth, char uteln
         {
             temp = temp->next;
             index++;
-            if (temp->next == NULL)
-            {
-                newRec = new record();
-                newRec->next = NULL;
-                temp->next = newRec;
-                strcpy(newRec->name, uname);
-                strcpy(newRec->address, uaddress);
-                newRec->yearofbirth = uyearofbirth;
-                strcpy(newRec->telno, utelno);
-                break;
-            }
         }
+        temp->next = newRec;
     }
     return index;
 }
@@ -206,7 +192,8 @@ int llist::modifyRecord(char uname[], char uaddress[], char utelno[])
     struct record *temp = start;
     if (_DEBUGMODE == 1)
     {
-        cout << "\nmodifyRecord Function\n" << "Name: " << uname << "\nAddress: " << uaddress << "\nTelno: " << utelno << "\n" << endl;
+        cout << "\nmodifyRecord Function\n" << "Name: " << uname << "\nAddress: "
+                << uaddress << "\nTelno: " << utelno << "\n" << endl;
     }
     while (temp != NULL)
     {
@@ -270,10 +257,12 @@ int llist::deleteRecord(char uname[])
     struct record **newStart = &start;
     struct record *temp1 = *newStart;
     struct record *temp2 = NULL;
+    
     if (_DEBUGMODE == 1)
     {
         cout << "\ndeleteRecord Function\n" << "name: " << uname << "\n" << endl;
     }
+    
     while (temp1 != NULL)
     {
         if (strcmp(temp1->name, uname) == 0)
@@ -345,7 +334,7 @@ void llist::cleanup()
 
 int llist::readfile()
 {
-    int count = 0, yob, returnVal = 0;
+    int count = 0, yob = 0, returnVal = 0;
     string input;
     char name[25], address[80], telno[15];
     ifstream read(filename);
