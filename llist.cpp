@@ -109,21 +109,18 @@ int llist::addRecord(char uname[], char uaddress[], int uyearofbirth, char uteln
     newRec->next = NULL;
     if (_DEBUGMODE == 1)
     {
-<<<<<<< HEAD
         cout << "addRecord Function\nName: " << uname << "\nAddress: " << uaddress <<
         "\nYob: " << uyearofbirth << "\nTelno: " << utelno << "\n" << endl;
-	}
-    
+    }
     if (start == NULL)
-=======
+    {
         cout << "addRecord Function\nName: " << uname << "\nAddress: " << uaddress << "\nYob: " << uyearofbirth << "\nTelno: " << utelno << "\n" << endl;
     }
     if (temp == NULL)
->>>>>>> cf48a7ed342134f374ad7802d7a834e64cf9b534
     {
         start = newRec;
         index++;
-	}
+    }
     else if (temp->next == NULL)
     {
         temp->next = newRec;
