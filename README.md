@@ -1,4 +1,4 @@
-# Records-Book
+# RecordsBook
 Records Book programmed in C++.
 
 - For a record, the user can specify a persons name, address,
