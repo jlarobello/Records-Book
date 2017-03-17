@@ -10,3 +10,4 @@ struct.
 - A list of commands can be invoked with the "help" command.
 - Records are saved to a text file upon termination of the program.
 - If a records text file exist, it will read the contents of the text file and reload it into the linked list.
+

@@ -1,4 +1,4 @@
-#MAKEFILE FOR PROJECT2
+# MAKEFILE FOR PROJECT2
 
 project2: driver.o llist.o
 	g++ driver.o llist.o -o project2
